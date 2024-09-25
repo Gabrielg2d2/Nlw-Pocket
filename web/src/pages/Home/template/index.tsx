@@ -5,10 +5,18 @@ import { TemplateEmptyGoal } from "./components/TemplateEmptyGoal";
 export function HomeTemplate() {
   const [openDrawer, setOpenDrawer] = useState(false);
 
+  function handleOpenDrawer() {
+    setOpenDrawer(true);
+  }
+
+  function handleCloseDrawer() {
+    setOpenDrawer(false);
+  }
+
   return (
     <>
-      <TemplateEmptyGoal onClickOpenModal={() => setOpenDrawer(true)} />
-      <DrawerCreateGoal open={openDrawer} close={() => setOpenDrawer(false)} />
+      <TemplateEmptyGoal onClickOpenModal={handleOpenDrawer} />
+      <DrawerCreateGoal open={openDrawer} close={handleCloseDrawer} />
     </>
   );
 }

@@ -34,6 +34,9 @@ export function DrawerCreateGoal({
             variant="contained"
             sx={{
               backgroundColor: "#18181B",
+              ":hover": {
+                backgroundColor: "#202021",
+              },
             }}
             fullWidth
             onClick={close}
