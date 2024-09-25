@@ -13,7 +13,7 @@ export const theme = createTheme({
       main: red.A400,
     },
     background: {
-      default: "#27272A",
+      default: "#09090B",
     },
     text: {
       primary: "#D4D4D8",
