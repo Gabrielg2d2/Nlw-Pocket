@@ -15,6 +15,14 @@ export function DrawerCustom({
   title = "Title",
   children,
 }: IDrawerCustomProps) {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Tab") {
+      event.stopPropagation(); // Impede a propagação do evento Tab
+    } else if (event.key === "Escape") {
+      close(); // Fecha a Drawer ao pressionar Escape
+    }
+  };
+
   return (
     <Drawer
       PaperProps={{
@@ -33,7 +41,7 @@ export function DrawerCustom({
       <>
         <Box
           role="presentation"
-          onKeyDown={close}
+          onKeyDown={handleKeyDown}
           display={"flex"}
           alignItems="center"
           justifyContent="space-between"

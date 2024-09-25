@@ -29,7 +29,7 @@ export function DrawerCreateGoal({
           <SubTitle>Quantas vezes na semana?</SubTitle>
         </Stack>
 
-        <Stack gap={2} direction="row" pb={4}>
+        <Stack gap={2} direction="row" pb={4} px={4}>
           <Button
             variant="contained"
             sx={{
