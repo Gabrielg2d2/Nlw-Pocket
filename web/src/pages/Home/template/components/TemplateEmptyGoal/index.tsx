@@ -2,6 +2,8 @@ import ImgEmptyGoal from "@/assets/empty-goal.svg";
 import ImgLogo from "@/assets/logo.svg";
 import { Box, Button, Stack, Typography } from "@mui/material";
 
+import AddIcon from "@mui/icons-material/Add";
+
 type ITemplateEmptyGoalProps = {
   onClickOpenModal: () => void;
 };
@@ -33,7 +35,14 @@ export function TemplateEmptyGoal(props: ITemplateEmptyGoalProps) {
         <Button
           variant="contained"
           color="primary"
-          startIcon={null}
+          startIcon={
+            <AddIcon
+              sx={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          }
           onClick={() => props.onClickOpenModal()}
         >
           Cadastrar Meta
