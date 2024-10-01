@@ -1,5 +1,7 @@
-import { Button, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { DrawerCustom } from "../../../../../components/DrawerCustom";
+import { ButtonClose } from "./components/ButtonClose";
+import { ButtonSave } from "./components/ButtonSave";
 import { DescriptionText } from "./components/DescriptionText";
 import { InputGoal } from "./components/InputGoal";
 import { SubTitle } from "./components/SubTitle";
@@ -30,23 +32,8 @@ export function DrawerCreateGoal({
         </Stack>
 
         <Stack gap={2} direction="row" pb={4} px={4}>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#18181B",
-              ":hover": {
-                backgroundColor: "#202021",
-              },
-            }}
-            fullWidth
-            onClick={close}
-          >
-            Fechar
-          </Button>
-
-          <Button variant="contained" fullWidth>
-            Salvar
-          </Button>
+          <ButtonClose onClick={close} />
+          <ButtonSave />
         </Stack>
       </Stack>
     </DrawerCustom>
