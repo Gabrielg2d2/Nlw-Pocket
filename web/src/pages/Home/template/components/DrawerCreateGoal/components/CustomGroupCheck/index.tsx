@@ -3,7 +3,7 @@ import { CustomCheck, ICheckProps } from "./components/CustomCheck";
 
 export type { ICheckProps };
 
-type ICustomGroupCheck = {
+export type ICustomGroupCheck = {
   checked: ICheckProps;
   setChecked: (value: ICheckProps) => void;
 };

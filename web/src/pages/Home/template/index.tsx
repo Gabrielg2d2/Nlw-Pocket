@@ -1,37 +1,20 @@
-import { useState } from "react";
-import { DrawerCreateGoal } from "./components/DrawerCreateGoal";
-import { ICheckProps } from "./components/DrawerCreateGoal/components/CustomGroupCheck";
+import {
+  DrawerCreateGoal,
+  IDrawerCreateGoalProps,
+} from "./components/DrawerCreateGoal";
 import { TemplateEmptyGoal } from "./components/TemplateEmptyGoal";
 
-export function HomeTemplate() {
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [checked, setChecked] = useState<ICheckProps>({
-    1: true,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-  });
+export type IHomeTemplateProps = {
+  drawerCreateGoal: IDrawerCreateGoalProps;
+};
 
-  function handleOpenDrawer() {
-    setOpenDrawer(true);
-  }
-
-  function handleCloseDrawer() {
-    setOpenDrawer(false);
-  }
-
+export function HomeTemplate(props: IHomeTemplateProps) {
   return (
     <>
-      <TemplateEmptyGoal onClickOpenModal={handleOpenDrawer} />
-      <DrawerCreateGoal
-        open={openDrawer}
-        close={handleCloseDrawer}
-        checked={checked}
-        setChecked={setChecked}
+      <TemplateEmptyGoal
+        onClickOpenModal={() => props.drawerCreateGoal.handleOpen()}
       />
+      <DrawerCreateGoal {...props.drawerCreateGoal} />
     </>
   );
 }
