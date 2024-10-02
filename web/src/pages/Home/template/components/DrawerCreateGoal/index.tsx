@@ -48,7 +48,10 @@ export function DrawerCreateGoal({
 
         <Stack gap={2} direction="row" pb={4} px={4}>
           <ButtonClose onClick={handleClose} />
-          <ButtonSave onClick={handleSubmit} />
+          <ButtonSave
+            onClick={handleSubmit}
+            disabled={inputGoal.value === ""}
+          />
         </Stack>
       </Stack>
     </DrawerCustom>

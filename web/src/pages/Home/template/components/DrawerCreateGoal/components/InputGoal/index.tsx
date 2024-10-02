@@ -3,6 +3,7 @@ import { TextField } from "@mui/material";
 export type IInputGoalProps = {
   value: string;
   onChange: (value: string) => void;
+  error: boolean;
 };
 
 export function InputGoal(props: IInputGoalProps) {
@@ -17,6 +18,8 @@ export function InputGoal(props: IInputGoalProps) {
         borderRadius: "4px",
         border: "2px solid #18181B",
       }}
+      error={props.error}
+      helperText={props.error ? "Campo obrigatório" : ""}
     />
   );
 }
