@@ -15,9 +15,17 @@ export function Home() {
     7: false,
   });
 
+  function handleSubmit() {
+    const days = Object.keys(checked).filter(
+      (key) => checked[Number(key)] === true
+    ).length;
+
+    console.log(`Goal: ${inputGoal} - Days: ${days}`);
+  }
+
   const propsTemplate: IHomeTemplateProps = {
     drawerCreateGoal: {
-      open: openDrawer,
+      isOpen: openDrawer,
       handleClose: () => setOpenDrawer(false),
       handleOpen: () => setOpenDrawer(true),
       checked: {
@@ -28,6 +36,7 @@ export function Home() {
         value: inputGoal,
         onChange: (value: string) => setInputGoal(value),
       },
+      handleSubmit,
     },
   };
 

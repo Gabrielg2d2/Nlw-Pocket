@@ -11,23 +11,25 @@ import { IInputGoalProps, InputGoal } from "./components/InputGoal";
 import { SubTitle } from "./components/SubTitle";
 
 export type IDrawerCreateGoalProps = {
-  open: boolean;
+  isOpen: boolean;
   handleOpen: () => void;
   handleClose: () => void;
   checked: ICustomGroupCheck;
   inputGoal: IInputGoalProps;
+  handleSubmit: () => void;
 };
 
 type IProps = IDrawerCreateGoalProps;
 
 export function DrawerCreateGoal({
-  open = false,
+  isOpen = false,
   handleClose,
   checked,
   inputGoal,
+  handleSubmit,
 }: IProps) {
   return (
-    <DrawerCustom title="Cadastrar meta" open={open} close={handleClose}>
+    <DrawerCustom title="Cadastrar meta" open={isOpen} close={handleClose}>
       <Stack gap={2} height="100%">
         <DescriptionText>
           Adicione atividades que te fazem bem e que você quer continuar
@@ -46,7 +48,7 @@ export function DrawerCreateGoal({
 
         <Stack gap={2} direction="row" pb={4} px={4}>
           <ButtonClose onClick={handleClose} />
-          <ButtonSave />
+          <ButtonSave onClick={handleSubmit} />
         </Stack>
       </Stack>
     </DrawerCustom>
