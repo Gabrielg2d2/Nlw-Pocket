@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { GoalDomain } from "../../domain/goals/main";
 import { HomeTemplate, IHomeTemplateProps } from "./template";
 import { ICheckProps } from "./template/components/DrawerCreateGoal/components/CustomGroupCheck";
 
 export function Home() {
+  const [goalDomain] = useState(new GoalDomain());
   const [openDrawer, setOpenDrawer] = useState(false);
   const [inputGoal, setInputGoal] = useState("");
   const [checked, setChecked] = useState<ICheckProps>({
@@ -16,11 +18,11 @@ export function Home() {
   });
 
   function handleSubmit() {
-    const days = Object.keys(checked).filter(
+    const estimatedQuantity = Object.keys(checked).filter(
       (key) => checked[Number(key)] === true
     ).length;
 
-    console.log(`Goal: ${inputGoal} - Days: ${days}`);
+    goalDomain.createGoal(inputGoal, estimatedQuantity);
   }
 
   const propsTemplate: IHomeTemplateProps = {
