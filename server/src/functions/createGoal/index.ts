@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import z from "zod";
 import { dbCreateGoal } from "../../db/querys/Goal/insert";
+import { dbIsExistGoal } from "../../db/querys/Goal/selectIsExistGoal";
 import type { ICreateGoalRoute } from "../../routes/create-goal-week";
 import { type CustomError, errorCreateGoal } from "./error";
 dayjs.extend(weekOfYear);
@@ -21,21 +22,18 @@ export async function createGoal(request: ICreateGoalRoute) {
   try {
     const requestValues = validateCreateGoalRequest(request);
 
-    console.log("requestValues => ", requestValues);
+    const isExistGoal = await dbIsExistGoal(requestValues.title);
 
-    // const isExistGoal = await dbIsExistGoal(requestValues.title);
-
-    // if (isExistGoal) {
-    //   return {
-    //     message: {
-    //       ptBr: "Já existe uma meta com esse título",
-    //       en: "There is already a goal with this title",
-    //     },
-    //     status: 400,
-    //     data: {},
-    //     error: "title already exists",
-    //   };
-    // }
+    if (isExistGoal) {
+      return {
+        message: {
+          ptBr: "Já existe uma meta com esse título",
+          en: "There is already a goal with this title",
+        },
+        status: 400,
+        data: null,
+      };
+    }
 
     const currentWeek = dayjs().week();
     const currentYear = dayjs().year();
@@ -55,7 +53,6 @@ export async function createGoal(request: ICreateGoalRoute) {
       },
       status: 200,
       data: result,
-      error: "",
     };
   } catch (error) {
     return errorCreateGoal(error as CustomError);

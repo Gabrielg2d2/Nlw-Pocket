@@ -1,3 +1,4 @@
+import { ErrorDefault } from "../../../../functions/ErrorDefault";
 import { api } from "../../../../infra/api";
 
 export class Repository {
@@ -9,8 +10,8 @@ export class Repository {
       });
 
       return response.data;
-    } catch (error) {
-      throw new Error("Error creating goal");
+    } catch (error: Error | any) {
+      return new ErrorDefault(error).execute();
     }
   }
 

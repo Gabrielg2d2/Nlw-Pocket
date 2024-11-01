@@ -4,7 +4,7 @@ export class GoalDomain {
   constructor(private readonly createGoalSub = new CreateGoalSub()) {}
 
   async createGoal(goal: string, estimatedQuantity: number) {
-    await this.createGoalSub.createGoal(goal, estimatedQuantity);
+    return await this.createGoalSub.createGoal(goal, estimatedQuantity);
   }
 
   async updateGoal() {
