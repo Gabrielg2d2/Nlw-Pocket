@@ -3,8 +3,6 @@ export function errorUpdateGoal(error: Error) {
   const MESSAGE_EN = "Error updating goal";
   const STATUS = 400;
 
-  console.error("Error updating goal: ", error);
-
   if (error) {
     return {
       message: {
@@ -12,10 +10,7 @@ export function errorUpdateGoal(error: Error) {
         en: MESSAGE_EN,
       },
       status: STATUS,
-      error: {
-        message: error.message,
-        stack: error.stack,
-      },
+      typeMessage: "error",
     };
   }
 
@@ -25,6 +20,6 @@ export function errorUpdateGoal(error: Error) {
       en: "Service unavailable, try again later",
     },
     status: 500,
-    error,
+    typeMessage: "error",
   };
 }

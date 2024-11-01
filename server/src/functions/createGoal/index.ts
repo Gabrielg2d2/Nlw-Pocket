@@ -31,6 +31,7 @@ export async function createGoal(request: ICreateGoalRoute) {
           en: "There is already a goal with this title",
         },
         status: 400,
+        typeMessage: "error",
         data: null,
       };
     }
@@ -53,6 +54,7 @@ export async function createGoal(request: ICreateGoalRoute) {
       },
       status: 200,
       data: result,
+      typeMessage: "success",
     };
   } catch (error) {
     return errorCreateGoal(error as CustomError);

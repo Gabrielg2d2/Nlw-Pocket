@@ -33,7 +33,7 @@ export async function updateGoal(
       },
       status: 201,
       data: newData,
-      error: "",
+      typeMessage: "success",
     };
   } catch (error) {
     return errorUpdateGoal(error as Error);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useToastCustomContext } from "../../context/toastCustom";
 import { GoalDomain } from "../../domain/goals/main";
 import { HomeTemplate, IHomeTemplateProps } from "./template";
 import { ICheckProps } from "./template/components/DrawerCreateGoal/components/CustomGroupCheck";
@@ -16,13 +17,15 @@ export function Home() {
     6: false,
     7: false,
   });
+  const { useToastCustom } = useToastCustomContext();
 
   async function handleSubmit() {
     const estimatedQuantity = Object.keys(checked).filter(
       (key) => checked[Number(key)] === true
     ).length;
 
-    await goalDomain.createGoal(inputGoal, estimatedQuantity);
+    const result = await goalDomain.createGoal(inputGoal, estimatedQuantity);
+    useToastCustom(result.message.ptBr, result.typeMessage);
   }
 
   const propsTemplate: IHomeTemplateProps = {

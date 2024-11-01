@@ -14,7 +14,7 @@ export async function getGoals(weekNumber?: number) {
         },
         status: 404,
         data: [],
-        error: "",
+        typeMessage: "error",
       };
     }
 
@@ -27,7 +27,7 @@ export async function getGoals(weekNumber?: number) {
       },
       status: 200,
       data: resultFormatted,
-      error: "",
+      typeMessage: "success",
     };
   } catch (error) {
     return errorGetGoal(error as Error);
