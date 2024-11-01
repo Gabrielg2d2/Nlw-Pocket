@@ -26,6 +26,20 @@ export function Home() {
 
     const result = await goalDomain.createGoal(inputGoal, estimatedQuantity);
     useToast(result.message.ptBr, result.typeMessage);
+
+    if (result.typeMessage === "success") {
+      setOpenDrawer(false);
+      setInputGoal("");
+      setChecked({
+        1: true,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+      });
+    }
   }
 
   const propsTemplate: IHomeTemplateProps = {
