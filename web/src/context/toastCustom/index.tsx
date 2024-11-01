@@ -8,13 +8,13 @@ type ToastCustomType = {
 type ITypeMessage = "success" | "error";
 
 type ToastCustomContextType = {
-  useToastCustom: (message: string, type: ITypeMessage) => void;
+  useToast: (message: string, type: ITypeMessage) => void;
 };
 
 const ToastCustomContext = createContext({} as ToastCustomContextType);
 
 export function ToastCustomProvider({ children }: ToastCustomType) {
-  function useToastCustom(message: string, typeMessage: ITypeMessage) {
+  function useToast(message: string, typeMessage: ITypeMessage) {
     if (typeMessage === "success") {
       return toast.success(message);
     }
@@ -27,9 +27,9 @@ export function ToastCustomProvider({ children }: ToastCustomType) {
   }
 
   return (
-    <ToastCustomContext.Provider value={{ useToastCustom }}>
+    <ToastCustomContext.Provider value={{ useToast }}>
       {children}
-      <Toaster position="top-left" />
+      <Toaster position="top-left" richColors />
     </ToastCustomContext.Provider>
   );
 }

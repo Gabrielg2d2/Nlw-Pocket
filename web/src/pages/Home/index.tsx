@@ -17,7 +17,7 @@ export function Home() {
     6: false,
     7: false,
   });
-  const { useToastCustom } = useToastCustomContext();
+  const { useToast } = useToastCustomContext();
 
   async function handleSubmit() {
     const estimatedQuantity = Object.keys(checked).filter(
@@ -25,7 +25,7 @@ export function Home() {
     ).length;
 
     const result = await goalDomain.createGoal(inputGoal, estimatedQuantity);
-    useToastCustom(result.message.ptBr, result.typeMessage);
+    useToast(result.message.ptBr, result.typeMessage);
   }
 
   const propsTemplate: IHomeTemplateProps = {
