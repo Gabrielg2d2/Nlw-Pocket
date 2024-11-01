@@ -17,12 +17,12 @@ export function Home() {
     7: false,
   });
 
-  function handleSubmit() {
+  async function handleSubmit() {
     const estimatedQuantity = Object.keys(checked).filter(
       (key) => checked[Number(key)] === true
     ).length;
 
-    goalDomain.createGoal(inputGoal, estimatedQuantity);
+    await goalDomain.createGoal(inputGoal, estimatedQuantity);
   }
 
   const propsTemplate: IHomeTemplateProps = {

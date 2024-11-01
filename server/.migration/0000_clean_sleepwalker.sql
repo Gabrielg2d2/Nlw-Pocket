@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS "goals" (
 	"id" text PRIMARY KEY NOT NULL,
 	"title" text NOT NULL,
+	"week" integer NOT NULL,
+	"year" integer NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
@@ -21,9 +23,7 @@ CREATE TABLE IF NOT EXISTS "goals_week_progress" (
 	"id" text PRIMARY KEY NOT NULL,
 	"goal_week_id" text,
 	"actual_frequency" integer DEFAULT 0 NOT NULL,
-	"percentage_achieved" real DEFAULT 0 NOT NULL,
-	"week" integer NOT NULL,
-	"year" integer NOT NULL
+	"percentage_achieved" real DEFAULT 0 NOT NULL
 );
 --> statement-breakpoint
 DO $$ BEGIN

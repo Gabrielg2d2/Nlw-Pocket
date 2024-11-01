@@ -1,5 +1,5 @@
 {
-  "id": "26ff5949-0c25-4dda-855a-74cd2fa57f25",
+  "id": "064d48eb-5589-4cda-b474-ce09c641ac81",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -20,6 +20,18 @@
           "primaryKey": false,
           "notNull": true
         },
+        "week": {
+          "name": "week",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "year": {
+          "name": "year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "created_at": {
           "name": "created_at",
           "type": "timestamp with time zone",
@@ -31,7 +43,10 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     },
     "public.goals_week": {
       "name": "goals_week",
@@ -122,7 +137,10 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     },
     "public.goals_week_progress": {
       "name": "goals_week_progress",
@@ -153,18 +171,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": 0
-        },
-        "week": {
-          "name": "week",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "year": {
-          "name": "year",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
         }
       },
       "indexes": {},
@@ -184,12 +190,18 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     }
   },
   "enums": {},
   "schemas": {},
   "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
   "_meta": {
     "columns": {},
     "schemas": {},

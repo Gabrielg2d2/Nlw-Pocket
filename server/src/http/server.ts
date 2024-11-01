@@ -1,9 +1,14 @@
+import cors from "@fastify/cors";
 import fastify from "fastify";
 import { createGoalRoute } from "../routes/create-goal-week";
 import { getGoalsWeekRoute } from "../routes/get-goals-week";
 import { updateGoalWeekRoute } from "../routes/update-goal-week";
 
 const app = fastify();
+
+app.register(cors, {
+  origin: "*",
+});
 
 app.register(createGoalRoute);
 app.register(getGoalsWeekRoute);

@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1726326529488,
-      "tag": "0000_normal_moira_mactaggert",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1726652998537,
-      "tag": "0001_gorgeous_goliath",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1726659611792,
-      "tag": "0002_numerous_landau",
+      "when": 1730498782402,
+      "tag": "0000_clean_sleepwalker",
       "breakpoints": true
     }
   ]

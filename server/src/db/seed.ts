@@ -1,34 +1,27 @@
-import { closeDb, db } from '.'
-import { updateGoal } from '../functions/updateGoal'
-import { dbCreateGoal } from './querys/Goal/insert'
-import { goals, goalsWeek, goalsWeekProgress } from './schema'
-
-interface Goal {
-  id: string
-  title: string
-  desiredWeeklyFrequency: number
-  actualWeeklyFrequency: number
-}
+import { closeDb, db } from ".";
+import { updateGoal } from "../functions/updateGoal";
+import { dbCreateGoal } from "./querys/Goal/insert";
+import { goals, goalsWeek, goalsWeekProgress } from "./schema";
 
 async function seed() {
-  await db.delete(goalsWeekProgress)
+  await db.delete(goalsWeekProgress);
 
-  await db.delete(goalsWeek)
-  await db.delete(goals)
+  await db.delete(goalsWeek);
+  await db.delete(goals);
 
   const goal1 = await dbCreateGoal({
-    title: 'Musculação',
+    title: "Musculação",
     desiredWeeklyFrequency: 5,
     week: 14,
     year: 2024,
-  })
+  });
 
   await dbCreateGoal({
-    title: 'Leitura Diária',
+    title: "Leitura Diária",
     desiredWeeklyFrequency: 7,
     week: 15,
     year: 2024,
-  })
+  });
 
   const dataGoal1 = {
     progressId: goal1.progressWeeklyGoals.id,
@@ -36,48 +29,48 @@ async function seed() {
     desiredWeeklyFrequency: goal1.week.desiredWeeklyFrequency,
     daysOfTheWeek: [
       {
-        day: 'monday',
+        day: "monday",
         value: true,
       },
       {
-        day: 'tuesday',
+        day: "tuesday",
         value: true,
       },
       {
-        day: 'wednesday',
+        day: "wednesday",
         value: true,
       },
       {
-        day: 'thursday',
+        day: "thursday",
         value: true,
       },
       {
-        day: 'friday',
+        day: "friday",
         value: false,
       },
       {
-        day: 'saturday',
+        day: "saturday",
         value: false,
       },
       {
-        day: 'sunday',
+        day: "sunday",
         value: false,
       },
     ],
-  }
+  };
 
   await updateGoal(
     dataGoal1.weekId,
     dataGoal1.progressId,
     dataGoal1.desiredWeeklyFrequency,
     dataGoal1.daysOfTheWeek
-  )
+  );
 }
 
 seed()
-  .catch(error => {
-    console.error('Error inserting seed data:', error)
+  .catch((error) => {
+    console.error("Error inserting seed data:", error);
   })
   .finally(async () => {
-    await closeDb()
-  })
+    await closeDb();
+  });
