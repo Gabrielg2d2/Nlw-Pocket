@@ -25,9 +25,11 @@ export function ListGoals(props: IListGoalsProps) {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Stack direction="row" gap={1}>
-            <Box component="img" src={ImgIconLogo} />
-            <Typography fontWeight="bold"> 01 a 07 de Dezembro</Typography>
+          <Stack direction="row" gap={2} alignItems="center">
+            <Box component="img" src={ImgIconLogo} height={40} />
+            <Typography fontSize={20} fontWeight="bold">
+              01 a 07 de Dezembro
+            </Typography>
           </Stack>
 
           <Button
