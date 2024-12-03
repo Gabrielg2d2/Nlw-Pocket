@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToastCustomContext } from "../../context/toastCustom";
 import { GoalDomain } from "../../domain/goals/main";
 import { HomeTemplate, IHomeTemplateProps } from "./template";
@@ -35,6 +35,16 @@ export function Home() {
       setChecked(DEFAULT_CHECKED);
     }
   }
+
+  useEffect(() => {
+    async function getListGoals() {
+      const weekNumber = 44;
+      const result = await goalDomain.getListGoals(weekNumber);
+      console.log("result => ", result);
+    }
+
+    getListGoals();
+  }, [goalDomain]);
 
   const propsTemplate: IHomeTemplateProps = {
     drawerCreateGoal: {
