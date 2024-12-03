@@ -4,19 +4,21 @@ import { GoalDomain } from "../../domain/goals/main";
 import { HomeTemplate, IHomeTemplateProps } from "./template";
 import { ICheckProps } from "./template/components/DrawerCreateGoal/components/CustomGroupCheck";
 
+const DEFAULT_CHECKED = {
+  1: true,
+  2: false,
+  3: false,
+  4: false,
+  5: false,
+  6: false,
+  7: false,
+};
+
 export function Home() {
   const [goalDomain] = useState(new GoalDomain());
   const [openDrawer, setOpenDrawer] = useState(false);
   const [inputGoal, setInputGoal] = useState("");
-  const [checked, setChecked] = useState<ICheckProps>({
-    1: true,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-  });
+  const [checked, setChecked] = useState<ICheckProps>(DEFAULT_CHECKED);
   const { useToast } = useToastCustomContext();
 
   async function handleSubmit() {
@@ -30,15 +32,7 @@ export function Home() {
     if (result.typeMessage === "success") {
       setOpenDrawer(false);
       setInputGoal("");
-      setChecked({
-        1: true,
-        2: false,
-        3: false,
-        4: false,
-        5: false,
-        6: false,
-        7: false,
-      });
+      setChecked(DEFAULT_CHECKED);
     }
   }
 
