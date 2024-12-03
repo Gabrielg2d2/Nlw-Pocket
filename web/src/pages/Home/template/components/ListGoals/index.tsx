@@ -60,11 +60,32 @@ export function ListGoals(props: IListGoalsProps) {
           value={60}
         />
 
+        <Typography color="textDisabled">
+          Você completou
+          <Typography
+            component="span"
+            color="textPrimary"
+            fontWeight="bold"
+            mx={0.6}
+          >
+            8
+          </Typography>
+          de
+          <Typography
+            component="span"
+            color="textPrimary"
+            fontWeight="bold"
+            mx={0.6}
+          >
+            12
+          </Typography>
+          metas nessa semana.
+        </Typography>
+
         <Divider
           sx={{
             backgroundColor: "#18181b",
             height: 2,
-            my: 2,
           }}
         />
       </Stack>

@@ -18,6 +18,7 @@ export const theme = createTheme({
     text: {
       primary: "#D4D4D8",
       secondary: "#F5F3FF",
+      disabled: "#A1A1AA",
     },
   },
 });
