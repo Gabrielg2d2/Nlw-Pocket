@@ -1,6 +1,6 @@
 import ImgIconLogo from "@/assets/icon-logo.svg";
 import AddIcon from "@mui/icons-material/Add";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 
 type IListGoalsProps = {
@@ -55,6 +55,14 @@ export function ListGoals(props: IListGoalsProps) {
             borderRadius: 10,
           }}
           value={60}
+        />
+
+        <Divider
+          sx={{
+            backgroundColor: "#18181b",
+            height: 2,
+            my: 2,
+          }}
         />
       </Stack>
     </Stack>
