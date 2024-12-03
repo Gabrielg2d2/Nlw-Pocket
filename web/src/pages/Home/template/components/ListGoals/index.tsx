@@ -27,7 +27,7 @@ export function ListGoals(props: IListGoalsProps) {
         >
           <Stack direction="row" gap={1}>
             <Box component="img" src={ImgIconLogo} />
-            <Typography fontWeight="bold">Dia 01 a 07 de Dezembro</Typography>
+            <Typography fontWeight="bold"> 01 a 07 de Dezembro</Typography>
           </Stack>
 
           <Button
@@ -53,6 +53,7 @@ export function ListGoals(props: IListGoalsProps) {
             width: "100%",
             height: 10,
             borderRadius: 10,
+            backgroundColor: "#18181b",
           }}
           value={60}
         />
