@@ -2,11 +2,12 @@ import {
   DrawerCreateGoal,
   IDrawerCreateGoalProps,
 } from "./components/DrawerCreateGoal";
-import { ListGoals } from "./components/ListGoals";
+import { IListGoalsProps, ListGoals } from "./components/ListGoals";
 // import { TemplateEmptyGoal } from "./components/TemplateEmptyGoal";
 
 export type IHomeTemplateProps = {
   drawerCreateGoal: IDrawerCreateGoalProps;
+  listGoals: IListGoalsProps;
 };
 
 export function HomeTemplate(props: IHomeTemplateProps) {
@@ -16,7 +17,7 @@ export function HomeTemplate(props: IHomeTemplateProps) {
         onClickOpenModal={() => props.drawerCreateGoal.handleOpen()}
       /> */}
 
-      <ListGoals onClickOpenModal={() => props.drawerCreateGoal.handleOpen()} />
+      <ListGoals {...props.listGoals} />
       <DrawerCreateGoal {...props.drawerCreateGoal} />
     </>
   );
