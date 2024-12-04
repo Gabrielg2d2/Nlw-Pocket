@@ -61,6 +61,11 @@ export function Home() {
       },
       handleSubmit,
     },
+    listGoals: {
+      header: {
+        onClickOpenModal: () => setOpenDrawer(true),
+      },
+    },
   };
 
   return <HomeTemplate {...propsTemplate} />;
