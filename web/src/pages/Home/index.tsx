@@ -65,6 +65,22 @@ export function Home() {
       header: {
         onClickOpenModal: () => setOpenDrawer(true),
       },
+      chips: {
+        list: [
+          {
+            title: "Teste 1",
+            isCompleted: false,
+          },
+          {
+            title: "Teste 2",
+            isCompleted: true,
+          },
+          {
+            title: "Teste 3",
+            isCompleted: true,
+          },
+        ],
+      },
     },
   };
 
